@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 30, 41, 59;
+  --background-start-rgb: 248, 250, 252;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 248, 250, 252;
+    --background-start-rgb: 15, 23, 42;
+    --background-end-rgb: 30, 41, 59;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-lg transition-all duration-300 font-medium shadow-soft hover:shadow-elegant;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90 hover:translate-y-[-2px];
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary-light hover:text-primary hover:translate-y-[-2px];
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary/90 hover:translate-y-[-2px];
+  }
+
+  .btn-accent {
+    @apply bg-accent text-white hover:bg-accent/90 hover:translate-y-[-2px];
+  }
+
+  .btn-white {
+    @apply bg-white text-primary border border-gray-100 hover:bg-gray-50 hover:translate-y-[-2px];
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-8 text-dark dark:text-white;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .card {
+    @apply bg-surface dark:bg-dark rounded-xl shadow-card hover:shadow-elegant transition-all duration-300;
+  }
+
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary;
+  }
+
+  .section-white {
+    @apply bg-surface py-24;
+  }
+
+  .section-light {
+    @apply bg-surface-secondary py-24;
+  }
+} 
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-light dark:bg-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/30 rounded-full hover:bg-primary/50;
+} 
